@@ -24,8 +24,8 @@ const deleteStudents = async (req = request ,res = response) => {
 const postStudents = async (req, res = response) => {
 
     
-    const {nombre, grado, numeroAcudiente, fechaClase}  = req.body;
-    const student = new Estudiante( {nombre, grado, numeroAcudiente, fechaClase} );
+    const {nombre, grado, numeroAcudiente, fechaClase, clase}  = req.body;
+    const student = new Estudiante( {nombre, grado, numeroAcudiente, clase, fechaClase} );
 
     //Guardar en BD
     try {

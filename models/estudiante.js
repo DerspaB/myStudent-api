@@ -14,6 +14,10 @@ const estudianteSchema = Schema({
         type: String,
         required: [true, 'El correo es obligatorio'],
     },
+    clase: {
+        type: String,
+        required: [true, 'la clase es obligatorio'],
+    },
     fechaClase: {
         type: Date,
         required: [true, 'la fecha de clase es obligatoria'],
