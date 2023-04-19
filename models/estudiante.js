@@ -2,9 +2,16 @@
 const { Schema, model } = require('mongoose');
 
 const estudianteSchema = Schema({
+    codigo: { 
+        type : String ,
+        unique : true,
+        required : true,
+        dropDups: true
+    },
     nombre: {
         type: String,
-        required: [true, 'El nombre es obligatorio']
+        unique: true,
+        required: [true, 'El nombre es obligatorio'],
     },
     grado:{
         type: Number,
@@ -26,6 +33,7 @@ const estudianteSchema = Schema({
         type: Boolean,
         default: true
     }
+   
 });
 
 estudianteSchema.methods.toJSON = function (){

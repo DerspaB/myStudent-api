@@ -9,6 +9,7 @@ const router = Router();
 
 
 router.post('/', [
+    check('codigo', 'la identificacion es obligatorio').not().isEmpty(),
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('grado', 'El grado es obligatorio').not().isEmpty(),
     check('clase', 'la clase es obligatoria').not().isEmpty(),

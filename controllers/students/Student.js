@@ -23,9 +23,8 @@ const deleteStudents = async (req = request ,res = response) => {
 
 const postStudents = async (req, res = response) => {
 
-    
-    const {nombre, grado, numeroAcudiente, fechaClase, clase}  = req.body;
-    const student = new Estudiante( {nombre, grado, numeroAcudiente, clase, fechaClase} );
+    const {codigo, nombre, grado, numeroAcudiente, fechaClase, clase}  = req.body;
+    const student = new Estudiante( {codigo, nombre, grado, numeroAcudiente, clase, fechaClase} );
 
     //Guardar en BD
     try {
@@ -35,8 +34,12 @@ const postStudents = async (req, res = response) => {
             msg: 'Se agendo correctamente'
         });
     } catch (error) {
-        res.status(404).json({
-            msg: error
+        res.status(400).json({
+            errors: [
+                {
+                    msg: 'Ya se encuentra registrado a la asesoria'
+                }
+            ]
         })
         
     }
